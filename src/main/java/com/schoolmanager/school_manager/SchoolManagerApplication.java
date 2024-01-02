@@ -4,6 +4,7 @@ import com.schoolmanager.school_manager.model.Authority;
 import com.schoolmanager.school_manager.model.Conta;
 import com.schoolmanager.school_manager.repository.AuthorityRepository;
 import com.schoolmanager.school_manager.repository.ContaRepository;
+import com.schoolmanager.school_manager.util.DB_Maker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,15 +14,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class SchoolManagerApplication implements CommandLineRunner {
 
-    @Autowired
-    private AuthorityRepository authorityRepository;
+    private final AuthorityRepository authorityRepository;
 
-    @Autowired
-    private ContaRepository contaRepository;
+    private final ContaRepository contaRepository;
+
+    public SchoolManagerApplication(AuthorityRepository authorityRepository, ContaRepository contaRepository) {
+        this.authorityRepository = authorityRepository;
+        this.contaRepository = contaRepository;
+    }
 
     @Autowired
     public PasswordEncoder passwordEncoder() {
@@ -33,7 +38,7 @@ public class SchoolManagerApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         Authority auth1 = new Authority(null, "ROLE_ADMIN");
         Authority auth2 = new Authority(null, "ROLE_SECRETARIA");
@@ -42,7 +47,7 @@ public class SchoolManagerApplication implements CommandLineRunner {
 
         Conta c1 = new Conta(null, "Admito", "admito@example.com", "11994212145", passwordEncoder().encode("12345"), "admin", LocalDateTime.now());
 
-        contaRepository.saveAll(Arrays.asList(c1));
+        contaRepository.saveAll(List.of(c1));
     }
 
 }

@@ -13,9 +13,9 @@ public class SwaggerConfig {
     public OpenAPI customOpenApi() {
         return new OpenAPI().info(
                 new Info()
-                        .title("Restfull API com SpringBoot 3.0")
-                        .version("v1")
-                        .description("")
+                        .title("Imapcto Manager")
+                        .version("1.0")
+                        .description("Api feita em SpringBoot 3")
                         .termsOfService(
                                 String.valueOf(new License()
                                         .name("Apache 2.0")

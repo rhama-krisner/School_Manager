@@ -23,7 +23,6 @@ public class Aluno {
     private String CEP;
 
     private Long CPF;
-
     private String nomeResponsavel;
 
     private String emailResponsavel;
