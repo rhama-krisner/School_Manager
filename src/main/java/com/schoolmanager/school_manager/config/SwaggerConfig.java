@@ -13,7 +13,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenApi() {
         return new OpenAPI().info(
                 new Info()
-                        .title("Imapcto Manager")
+                        .title("Impacto Manager")
                         .version("1.0")
                         .description("Api feita em SpringBoot 3")
                         .termsOfService(

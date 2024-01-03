@@ -26,6 +26,8 @@ public class ProjectSecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers(SwaggerWhiteListSecurity.AUTH_WHITE_LIST).permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
+                .requestMatchers("/aluno/**").permitAll()
+                .requestMatchers("/aluno").permitAll()
                 .requestMatchers("/api/authors/**").permitAll()
                 .requestMatchers("/teste").permitAll()
                 .requestMatchers("/register").authenticated()

@@ -2,7 +2,6 @@ package com.schoolmanager.school_manager.controller;
 
 import com.schoolmanager.school_manager.model.Conta;
 import com.schoolmanager.school_manager.repository.ContaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -26,7 +25,7 @@ public class LoginController {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody Conta conta) {
-        Conta contaSalva = null;
+        Conta contaSalva;
         ResponseEntity response = null;
 
         try {
