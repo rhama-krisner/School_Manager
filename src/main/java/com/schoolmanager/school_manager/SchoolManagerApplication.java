@@ -4,7 +4,6 @@ import com.schoolmanager.school_manager.model.Authority;
 import com.schoolmanager.school_manager.model.Conta;
 import com.schoolmanager.school_manager.repository.AuthorityRepository;
 import com.schoolmanager.school_manager.repository.ContaRepository;
-import com.schoolmanager.school_manager.util.DB_Maker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
