@@ -15,11 +15,14 @@ import java.util.List;
 @RestController
 public class LoginController {
 
-    @Autowired
-    private ContaRepository contaRepository;
+    private final ContaRepository contaRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+
+    public LoginController(ContaRepository contaRepository, PasswordEncoder passwordEncoder) {
+        this.contaRepository = contaRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody Conta conta) {
