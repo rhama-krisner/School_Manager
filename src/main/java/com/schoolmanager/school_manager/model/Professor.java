@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Professor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "professor_id", nullable = false)
     private Long id;
 

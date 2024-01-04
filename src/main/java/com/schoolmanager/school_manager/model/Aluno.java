@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Aluno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "aluno_id", nullable = false)
     private Long id;
 
