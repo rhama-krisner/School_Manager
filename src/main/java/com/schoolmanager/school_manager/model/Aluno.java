@@ -1,5 +1,7 @@
 package com.schoolmanager.school_manager.model;
 
+import com.schoolmanager.school_manager.CEP.CEP_Service;
+import com.schoolmanager.school_manager.CEP.Endereco;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -32,6 +34,7 @@ public class Aluno {
     public Aluno() {
 
     }
+
 
     public Aluno(String nome, String email, LocalDate dataNascimento, String sexo, String CEP, String rua, String bairro, int numero, String cidade, Long CPF, String nomeResponsavel, String emailResponsavel, String contatoResponsavel) {
         this.nome = nome;
@@ -99,6 +102,7 @@ public class Aluno {
 
     public void setCEP(String CEP) {
         this.CEP = CEP;
+        buscarEndereco();
     }
 
     public String getRua() {
@@ -155,5 +159,12 @@ public class Aluno {
 
     public void setContatoResponsavel(String contatoResponsavel) {
         this.contatoResponsavel = contatoResponsavel;
+    }
+
+    private void buscarEndereco() {
+        Endereco endereco = CEP_Service.buscaEndereco(this.CEP);
+        this.rua = endereco.getLogradouro();
+        this.bairro = endereco.getBairro();
+        this.cidade = endereco.getLocalidade();
     }
 }

@@ -20,7 +20,7 @@ public class AlunoController {
         this.service = service;
     }
 
-    @GetMapping(value = {"/", ""})
+    @GetMapping(value = {""})
     public List<Aluno> findAll() {
         return repository.findAll();
     }

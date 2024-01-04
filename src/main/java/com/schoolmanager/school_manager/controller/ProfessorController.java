@@ -1,11 +1,9 @@
 package com.schoolmanager.school_manager.controller;
 
-import com.schoolmanager.school_manager.model.Aluno;
 import com.schoolmanager.school_manager.model.Professor;
 import com.schoolmanager.school_manager.repository.ProfessorRepository;
 import com.schoolmanager.school_manager.service.ProfessorService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
