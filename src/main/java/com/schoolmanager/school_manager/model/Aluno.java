@@ -19,27 +19,30 @@ public class Aluno {
     private LocalDate dataNascimento;
 
     private String sexo;
-
     private String CEP;
-
+    private String rua;
+    private String bairro;
+    private int numero;
+    private String cidade;
     private Long CPF;
     private String nomeResponsavel;
-
     private String emailResponsavel;
-
     private String contatoResponsavel;
 
     public Aluno() {
 
     }
 
-    public Aluno(Long id, String nome, String email, LocalDate dataNascimento, String sexo, String CEP, Long CPF, String nomeResponsavel, String emailResponsavel, String contatoResponsavel) {
-        this.id = id;
+    public Aluno(String nome, String email, LocalDate dataNascimento, String sexo, String CEP, String rua, String bairro, int numero, String cidade, Long CPF, String nomeResponsavel, String emailResponsavel, String contatoResponsavel) {
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
         this.CEP = CEP;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.cidade = cidade;
         this.CPF = CPF;
         this.nomeResponsavel = nomeResponsavel;
         this.emailResponsavel = emailResponsavel;
@@ -48,10 +51,6 @@ public class Aluno {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -90,8 +89,40 @@ public class Aluno {
         return CEP;
     }
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
     public void setCEP(String CEP) {
         this.CEP = CEP;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public Long getCPF() {

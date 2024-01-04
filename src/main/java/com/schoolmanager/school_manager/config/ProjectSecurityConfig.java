@@ -5,7 +5,6 @@ import com.schoolmanager.school_manager.filter.JWTTokenValidatorFilter;
 import com.schoolmanager.school_manager.filter.RequestValidationBeforeFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,6 +27,7 @@ public class ProjectSecurityConfig {
                 .requestMatchers(SwaggerWhiteListSecurity.AUTH_WHITE_LIST).permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/aluno/**").permitAll()
+                .requestMatchers("/professor/**").permitAll()
                 .requestMatchers("/api/authors/**").permitAll()
                 .requestMatchers("/teste").permitAll()
                 .requestMatchers("/register").authenticated()

@@ -33,24 +33,26 @@ public class AlunoService {
     }
 
     public Aluno update(Aluno aluno) {
-        Aluno repo = repository.findById(aluno.getId()).orElseThrow(
-                () -> new ResourceNotFoundException("Não foi encontrado pessoas com esse ID"));
+        String msg = "Aluno não encontrado";
+        return repository.findById(aluno.getId()).map(e -> {
+            e.setNome(aluno.getNome());
+            e.setEmail(aluno.getEmail());
+            e.setDataNascimento(aluno.getDataNascimento());
+            e.setSexo(aluno.getSexo());
+            e.setCEP(aluno.getCEP());
+            e.setRua(aluno.getRua());
+            e.setBairro(aluno.getBairro());
+            e.setNumero(aluno.getNumero());
+            e.setCidade(aluno.getCidade());
+            e.setCPF(aluno.getCPF());
+            e.setNomeResponsavel(aluno.getNomeResponsavel());
+            e.setEmailResponsavel(aluno.getEmailResponsavel());
+            e.setContatoResponsavel(aluno.getContatoResponsavel());
+            return repository.save(e);
+        }).orElseThrow(
+                () -> new ResourceNotFoundException(msg)
+        );
 
-        Class<? extends Aluno> clazz = repo.getClass();
-        for (Method method : clazz.getMethods()) {
-            if (method.getName().startsWith("set")) {
-                try {
-                    String methodName = method.getName().substring(3);
-                    Method getMethod = clazz.getMethod("get" + methodName);
-                    Object value = getMethod.invoke(aluno);
-                    method.invoke(repo, value);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-
-        return repository.save(repo);
     }
 
     public void delete(Long id) {

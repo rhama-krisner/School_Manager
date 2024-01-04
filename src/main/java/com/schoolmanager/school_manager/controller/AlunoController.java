@@ -29,7 +29,7 @@ public class AlunoController {
     public Aluno findById(@PathVariable(value = "id") Long id) {
         Optional<Aluno> alunoOptional = repository.findById(id);
 
-        return new ResponseEntity<Aluno>(alunoOptional.get(), HttpStatus.OK).getBody();
+        return new ResponseEntity<>(alunoOptional.get(), HttpStatus.OK).getBody();
     }
     @PostMapping(value = "/novo")
     public Aluno create(@RequestBody Aluno aluno){
